@@ -4,6 +4,9 @@
     "system_error": "cpp",
     "xtr1common": "cpp",
     "iosfwd": "cpp",
-    "ios": "cpp"
+    "ios": "cpp",
+    "vector": "cpp",
+    "xiosbase": "cpp",
+    "xstring": "cpp"
   }
 }
