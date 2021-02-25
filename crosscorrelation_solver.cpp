@@ -25,31 +25,21 @@ bool isDouble(string s, double *value=0)
   }
 }
 
-void FileEx(vector<double> &x, vector<double> &y, string ch)
+void FileWrite(vector<double> x, int index)
 {
   string FN ="", SN="";
   double num = 0.0, nextnum = 0.0;
 
-  cout << "X - File Name:";
+  cout << "File Name of Output:";
   getline(cin, FN);
-  ifstream fe(FN.c_str(), ios::in);
+  ofstream fileWrite(FN.c_str(), ios::out);
 
-  if (!fe.is_open())
-  {
-    cerr << "There was a problem opening the input file!\n";
-    FileEx(x,y,ch);
-  }
-  else
-  {
-    x.clear();
-    while (fe >> num)
+  fileWrite << index << " ";
+  for(int i=0; i<x.size(); i++)
     {
-      x.push_back(num);
+        fileWrite << x[i] << endl;
     }
-    cout << "Loading of items successful"<<endl;
-    cout << "Number of items read: " << x.size() <<endl;
-  }
-  fe.close();
+  fileWrite.close();
 }
 
 void PrintData(vector<double> x)
@@ -179,4 +169,6 @@ int main()
   cout << "\n r_xy normalized" <<endl;
   Normalize(r_xy, NormalCoeff(x,y));
   PrintData(r_xy);
+
+  FileWrite(r_xy, firstL);
 }
