@@ -3,10 +3,12 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include "isDouble.h"
+#include "isInt.h"
 using namespace std;
 
 //will replace isDboule function with sir lui's code
-bool isDouble(string s, double &value)
+/*bool isDouble(string s, double &value)
 {
   double tempValue;
   if ((istringstream(s) >> tempValue).eof())
@@ -18,7 +20,7 @@ bool isDouble(string s, double &value)
   {
     return false;
   }
-}
+} */
 
 int main()
 {
