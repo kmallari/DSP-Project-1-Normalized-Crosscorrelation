@@ -5,6 +5,20 @@
 #include <sstream>
 using namespace std;
 
+bool isInt(string s, int &value)
+{
+  int tempValue;
+  if ((istringstream(s) >> tempValue).eof())
+  {
+    value = tempValue;
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
 //will replace isDboule function with sir lui's code
 bool isDouble(string s, double &value)
 {
@@ -20,7 +34,7 @@ bool isDouble(string s, double &value)
   }
 }
 
-vector<double> extractSignals(string fileName, double &signalsIndex)
+vector<double> extractSignals(string fileName, int &signalsIndex)
 {
   string signalText, tempString;
   stringstream ss, ss2;
@@ -38,19 +52,25 @@ vector<double> extractSignals(string fileName, double &signalsIndex)
       {
         ss << signalText;
         ss >> tempString;
-        if (!isDouble(tempString, signalsIndex))
+        if (!isInt(tempString, signalsIndex))
         {
-          break;
+          cout << "THIS RUNS" << endl;
+          if (isDouble(tempString, tempDouble))
+          {
+            signals.push_back(tempDouble);
+          }
+          signalsIndex = 0;
         }
-        tempString = "";
-        ss >> tempString;
-        if (isDouble(tempString, tempDouble))
+        else 
         {
-          signals.push_back(tempDouble);
+          ss >> tempString;
+          if (isDouble(tempString, tempDouble))
+          {
+            signals.push_back(tempDouble);
+          }
+          ss.clear();
         }
-        tempString = "";
         lineNumber++;
-        ss.clear();
       }
       else
       {
@@ -73,9 +93,9 @@ vector<double> extractSignals(string fileName, double &signalsIndex)
 int main()
 {
   string fileName1 = "signal-1.txt", fileName2 = "signal-2.txt";
-  double signalsIndex1, signalsIndex2;
+  int signalsIndex1, signalsIndex2;
   vector<double> firstSignals, secondSignals;
-  
+
   // cout << "Enter file name for the first signals: ";
   // cin >> fileName1;
   
@@ -96,6 +116,9 @@ int main()
   {
     cout << secondSignals.at(i) << endl;
   }
+
+  int x = 4.5;
+  cout << "PRINTING INT " << x << endl;
 
   return 0;
 }
