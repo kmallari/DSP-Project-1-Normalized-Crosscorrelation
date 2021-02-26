@@ -5,9 +5,10 @@
 #include <sstream>
 #include "isDouble.h"
 #include "isInt.h"
+#include "extractSignals.h"
 using namespace std;
 
-bool isInt(string s, int &value)
+/* bool isInt(string s, int &value)
 {
   int tempValue;
   if ((istringstream(s) >> tempValue).eof())
@@ -19,7 +20,7 @@ bool isInt(string s, int &value)
   {
     return false;
   }
-}
+}*/
 
 //will replace isDboule function with sir lui's code
 /*bool isDouble(string s, double &value)
@@ -36,7 +37,7 @@ bool isInt(string s, int &value)
   }
 } */
 
-vector<double> extractSignals(string fileName, int &signalsIndex)
+/*vector<double> extractSignals(string fileName, int &signalsIndex)
 {
   string signalText, tempString;
   stringstream ss, ss2;
@@ -90,7 +91,7 @@ vector<double> extractSignals(string fileName, int &signalsIndex)
     signalFile.close();
   }
   return signals;
-}
+} */
 
 int main()
 {
