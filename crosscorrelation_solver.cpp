@@ -25,7 +25,7 @@ bool isDouble(string s, double *value=0)
   }
 }
 
-void FileWrite(vector<double> x, int index)
+void FileWrite(vector<double> x, int index) //file write function
 {
   string FN ="", SN="";
   double num = 0.0, nextnum = 0.0;
