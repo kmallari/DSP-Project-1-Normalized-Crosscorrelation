@@ -3,23 +3,12 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
-<<<<<<< HEAD
 #include "isDouble.h"
 #include "isInt.h"
 #include "extractSignals.h"
 using namespace std;
 
 /* bool isInt(string s, int &value)
-=======
-#include "isInt.h"
-#include "isDouble.h"
-#include "extractSignals.h"
-
-
-using namespace std;
-
-/*bool isInt(string s, int &value)
->>>>>>> Felipe
 {
   int tempValue;
   if ((istringstream(s) >> tempValue).eof())
@@ -31,11 +20,7 @@ using namespace std;
   {
     return false;
   }
-<<<<<<< HEAD
 }*/
-=======
-} */
->>>>>>> Felipe
 
 //will replace isDboule function with sir lui's code
 /*bool isDouble(string s, double &value)
@@ -79,11 +64,7 @@ using namespace std;
           }
           signalsIndex = 0;
         }
-<<<<<<< HEAD
         else 
-=======
-        else
->>>>>>> Felipe
         {
           ss >> tempString;
           if (isDouble(tempString, tempDouble))
@@ -110,11 +91,7 @@ using namespace std;
     signalFile.close();
   }
   return signals;
-<<<<<<< HEAD
 } */
-=======
-}*/
->>>>>>> Felipe
 
 int main()
 {
@@ -124,11 +101,7 @@ int main()
 
   // cout << "Enter file name for the first signals: ";
   // cin >> fileName1;
-<<<<<<< HEAD
   
-=======
-
->>>>>>> Felipe
   firstSignals = extractSignals(fileName1, signalsIndex1);
   cout << "Index 1: " << signalsIndex1 << endl;
   for (int i = 0; i < firstSignals.size(); i++)
@@ -140,11 +113,7 @@ int main()
   // cin >> fileName1;
 
   secondSignals = extractSignals(fileName2, signalsIndex2);
-<<<<<<< HEAD
   
-=======
-
->>>>>>> Felipe
   cout << "Index 2: " << signalsIndex2 << endl;
   for (int i = 0; i < secondSignals.size(); i++)
   {
