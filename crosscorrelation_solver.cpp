@@ -5,27 +5,22 @@
 #include <algorithm>
 #include <vector>
 #include <cmath>
+#include "FileWrite.h"
+#include "PrintData.h"
+#include "getMean.h"
+#include "isDouble.h"
+#include "subtractAverage.h"
+#include "NormalCoeff.h"
+#include "Normalize.h"
+#include "Adjust.h"
+#include "getCrossCorrelation.h"
+
 
 using namespace std;
 
-bool isDouble(string s, double *value=0)
-{
-  char* remains = NULL;
-  double temporary = strtod(s.c_str(),&remains);
 
-  if(*remains == '\0')
-  {
-    *value = temporary;
-    return 1;
-  }
-  else
-  {
-    cout << "Invalid Value or non-float value present\nRemains: " << remains <<endl;
-    return 0;
-  }
-}
 
-void FileWrite(vector<double> x, int index) //file write function
+/*void FileWrite(vector<double> x, int index) //file write function
 {
   string FN ="", SN="";
   double num = 0.0, nextnum = 0.0;
@@ -40,17 +35,17 @@ void FileWrite(vector<double> x, int index) //file write function
         fileWrite << x[i] << endl;
     }
   fileWrite.close();
-}
+} */
 
-void PrintData(vector<double> x)
+/* void PrintData(vector<double> x)
 {
   for (int i = 0; i < x.size(); i++)
   {
     cout << x[i] << endl;
   }
-}
+} */
 
-double getMean(vector<double> x)
+/* double getMean(vector<double> x)
 {
   double mean, sum=0;
 
@@ -60,9 +55,9 @@ double getMean(vector<double> x)
   }
   mean = sum/x.size();
   return mean;
-}
+} */
 
-void subtractAverage(vector<double> &x, double mean)
+/*void subtractAverage(vector<double> &x, double mean)
 {
   vector<double> temp;
   for(int n = 0; n < x.size(); n++)
@@ -71,9 +66,9 @@ void subtractAverage(vector<double> &x, double mean)
   }
   x.swap(temp);
   temp.clear();
-}
+}*/
 
-double NormalCoeff(vector<double> x, vector<double> y)
+/*double NormalCoeff(vector<double> x, vector<double> y)
 {
   double sum1=0, sum2=0;
   for(int n=0; n<x.size(); n++)
@@ -85,9 +80,9 @@ double NormalCoeff(vector<double> x, vector<double> y)
     sum2+= y[n]*y[n];
   }
   return sqrt(sum1*sum2);
-}
+} */
 
-void Normalize(vector<double> &x, double NormalFactor)
+/*void Normalize(vector<double> &x, double NormalFactor)
 {
   vector<double> temp;
   for(int n = 0; n < x.size(); n++)
@@ -96,17 +91,17 @@ void Normalize(vector<double> &x, double NormalFactor)
   }
   x.swap(temp);
   temp.clear();
-}
+} */
 
-void Adjust(vector<double> &x, int adjustMax)
+/*(void Adjust(vector<double> &x, int adjustMax)
 {
   for(int n = 1; n < adjustMax; n++) //inserting 0 for begin lag
   {
     x.insert(x.begin(), 0);
   }
-}
+}*/
 
-void getCrossCorrelation(vector<double> &temp, vector<double> &r_xy, vector<double> x, int firstL, int lastL, int type)
+/*void getCrossCorrelation(vector<double> &temp, vector<double> &r_xy, vector<double> x, int firstL, int lastL, int type)
 {
   for(int n = lastL; n >= firstL; n--)
   {
@@ -133,7 +128,7 @@ void getCrossCorrelation(vector<double> &temp, vector<double> &r_xy, vector<doub
     }
     temp.erase(temp.begin());
   }
-}
+} */
 
 int main()
 {

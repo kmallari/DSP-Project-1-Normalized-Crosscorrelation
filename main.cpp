@@ -7,6 +7,7 @@
 #include "isDouble.h"
 #include "extractSignals.h"
 
+
 using namespace std;
 
 /*bool isInt(string s, int &value)
