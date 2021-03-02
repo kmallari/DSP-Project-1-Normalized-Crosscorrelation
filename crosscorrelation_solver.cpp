@@ -20,7 +20,7 @@ using namespace std;
 
 
 
-void FileWrite(vector<double> x, int index) //file write function
+/*void FileWrite(vector<double> x, int index) //file write function
 {
   string FN ="", SN="";
   double num = 0.0, nextnum = 0.0;
@@ -35,7 +35,7 @@ void FileWrite(vector<double> x, int index) //file write function
         fileWrite << x[i] << endl;
     }
   fileWrite.close();
-}
+} */
 
 /* void PrintData(vector<double> x)
 {
