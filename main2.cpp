@@ -42,15 +42,7 @@ int main()
   lastL=signal1LastIndex-signalsIndex2;
   firstL=signalsIndex1-signal2LastIndex;
 
-  if(signalsIndex1<signalsIndex2)
-  {
-    type = 1; //inserts element to start of array via insert begin
-  }
-  else if(signalsIndex1>signalsIndex2)
-  {
-    type = 2; //inserts element to end of array via pushback
-  }
-
+  determineType(signalsIndex1, signalsIndex2, type);
   subtractAverage(firstSignals, getMean(firstSignals));
   subtractAverage(secondSignals, getMean(secondSignals));
 

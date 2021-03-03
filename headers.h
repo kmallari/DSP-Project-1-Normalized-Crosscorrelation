@@ -25,4 +25,6 @@ vector<double> extractSignals(string fileName, int &signalsIndex);
 
 void Adjust(vector<double> &x, int adjustMax);
 
+void determineType(int x, int y, int &type);
+
 #endif

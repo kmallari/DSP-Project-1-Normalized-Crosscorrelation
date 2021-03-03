@@ -202,3 +202,15 @@ void Adjust(vector<double> &x, int adjustMax)
     x.insert(x.begin(), 0);
   }
 }
+
+void determineType(int x, int y, int &type)
+{
+  if(x<y)
+  {
+    type = 1; //inserts element to start of array via insert begin
+  }
+  else if(x>y)
+  {
+    type = 2; //inserts element to end of array via pushback
+  }
+}
