@@ -21,7 +21,7 @@ void PrintData(vector<double> x);
 
 void subtractAverage(vector<double> &x, double mean);
 
-vector<double> extractSignals(string fileName, int &signalsIndex);
+vector<double> extractSignals(int &signalsIndex);
 
 void Adjust(vector<double> &x, int adjustMax);
 

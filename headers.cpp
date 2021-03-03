@@ -11,11 +11,15 @@ using namespace std;
 
 void FileWrite(vector<double> x, int index) //file write function
 {
-  string FN ="", SN="";
-  double num = 0.0, nextnum = 0.0;
+  string FN ="", test, extension = ".txt";
 
   cout << "File Name of Output:";
   getline(cin, FN);
+  test = FN.substr(FN.size()-4, 4);
+  if(test != ".txt")
+  {
+      FN = FN + extension;
+  }
   ofstream fileWrite(FN.c_str(), ios::out);
 
   fileWrite << index << " ";
@@ -139,17 +143,26 @@ void subtractAverage(vector<double> &x, double mean)
   temp.clear();
 }
 
-vector<double> extractSignals(string fileName, int &signalsIndex)
+vector<double> extractSignals(int &signalsIndex)
 {
-  string signalText, tempString;
+  string signalText, tempString, fileName;
   stringstream ss, ss2;
   int lineNumber = 0;
   double tempDouble;
   vector<double> signals;
 
+  cout << "Enter file name for the signals: ";
+  getline(cin, fileName);
+
   fstream signalFile(fileName);
 
-  if (signalFile.is_open())
+  if (!signalFile.is_open())
+  {
+      cout << "Invalid File Name, Please try again..." <<endl;
+      signalFile.close();
+      signals = extractSignals(signalsIndex);
+  }
+  else if (signalFile.is_open())
   {
     while (getline(signalFile, signalText))
     {
@@ -159,14 +172,13 @@ vector<double> extractSignals(string fileName, int &signalsIndex)
         ss >> tempString;
         if (!isInt(tempString, signalsIndex))
         {
-          cout << "THIS RUNS" << endl;
           if (isDouble(tempString, tempDouble))
           {
             signals.push_back(tempDouble);
           }
           signalsIndex = 0;
         }
-        else 
+        else
         {
           ss >> tempString;
           if (isDouble(tempString, tempDouble))
@@ -182,7 +194,7 @@ vector<double> extractSignals(string fileName, int &signalsIndex)
         ss2 << signalText;
         ss2 >> tempString;
         ss2.clear();
-      
+
         if (isDouble(tempString, tempDouble))
         {
           signals.push_back(tempDouble);
