@@ -5,6 +5,9 @@
 #include <sstream>
 #include <algorithm>
 #include <stdlib.h>
+#include <cmath>
+
+using namespace std;
 
 void FileWrite(vector<double> x, int index) //file write function
 {
@@ -199,8 +202,6 @@ void Adjust(vector<double> &x, int adjustMax)
     x.insert(x.begin(), 0);
   }
 }
-
-using namespace std;
 
 int main()
 {
