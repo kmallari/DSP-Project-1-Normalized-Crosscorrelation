@@ -18,36 +18,42 @@ int main()
 
   cout << "First Signals..." <<endl;
   firstSignals = extractSignals(signalsIndex1);
-//  cout << "Index 1: " << signalsIndex1 << endl;
-//  for (int i = 0; i < firstSignals.size(); i++)
-//  {
-//    cout << firstSignals.at(i) << endl;
-//  }
+  //cout << "Index 1: " << signalsIndex1 << endl;
+  //for (int i = 0; i < firstSignals.size(); i++)
+  //{
+    //cout << firstSignals.at(i) << endl;
+  //}
 // uncomment lines when u want to see the signals extracted
 
   cout << "\nSecond Signals..." <<endl;
   secondSignals = extractSignals(signalsIndex2);
-//  cout << "Index 2: " << signalsIndex2 << endl;
-//  for (int i = 0; i < secondSignals.size(); i++)
-//  {
-//    cout << secondSignals.at(i) << endl;
-//  }
+  //cout << "Index 2: " << signalsIndex2 << endl;
+  //for (int i = 0; i < secondSignals.size(); i++)
+  //{
+    //cout << secondSignals.at(i) << endl;
+  //}
 
   signal1LastIndex=signalsIndex1+firstSignals.size()-1;
   signal2LastIndex=signalsIndex2+secondSignals.size()-1; //is this needed?
   lastL=signal1LastIndex-signalsIndex2;
   firstL=signalsIndex1-signal2LastIndex;
 
-  determineType(signalsIndex1, signalsIndex2, type);
   subtractAverage(firstSignals, getMean(firstSignals));
+  //PrintData(firstSignals);
+  //cout << endl;
   subtractAverage(secondSignals, getMean(secondSignals));
+  //PrintData(secondSignals);
+  //cout << endl;
 
   temp = secondSignals;
 
   Adjust(temp, firstSignals.size());
-  getCrossCorrelation(temp, r_xy, firstSignals, firstL, lastL, type);
+  getCrossCorrelation(temp, r_xy, firstSignals, firstL, lastL);
+  //PrintData(r_xy);
+  //cout << endl;
   Normalize(r_xy, NormalCoeff(firstSignals,secondSignals));
-//  PrintData(r_xy);
+  //PrintData(r_xy);
+  //cout << endl;
   FileWrite(r_xy, firstL);
 
   return 0;

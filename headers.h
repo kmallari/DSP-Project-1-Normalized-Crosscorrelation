@@ -5,7 +5,7 @@ using namespace std;
 
 void FileWrite(vector<double> x, int index);
 
-void getCrossCorrelation(vector<double> &temp, vector<double> &r_xy, vector<double> x, int firstL, int lastL, int type);
+void getCrossCorrelation(vector<double> &temp, vector<double> &r_xy, vector<double> x, int firstL, int lastL);
 
 double getMean(vector<double> x);
 
@@ -24,7 +24,5 @@ void subtractAverage(vector<double> &x, double mean);
 vector<double> extractSignals(int &signalsIndex);
 
 void Adjust(vector<double> &x, int adjustMax);
-
-void determineType(int x, int y, int &type);
 
 #endif

@@ -1,0 +1,7 @@
+-2 4.0 added .0 just to emphasize value is floating pt
+7
+2
+5
+8
+1 
+Signal file format allows annotation like this.

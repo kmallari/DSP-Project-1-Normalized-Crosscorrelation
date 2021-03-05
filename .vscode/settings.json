@@ -5,11 +5,6 @@
     "xtr1common": "cpp",
     "iosfwd": "cpp",
     "ios": "cpp",
-<<<<<<< HEAD
-    "vector": "cpp",
-    "xiosbase": "cpp",
-    "xstring": "cpp"
-=======
     "algorithm": "cpp",
     "cctype": "cpp",
     "cmath": "cpp",
@@ -43,6 +38,5 @@
     "xmemory": "cpp",
     "xstddef": "cpp",
     "xutility": "cpp"
->>>>>>> Felipe
   }
 }

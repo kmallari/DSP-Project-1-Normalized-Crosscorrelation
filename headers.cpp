@@ -30,7 +30,7 @@ void FileWrite(vector<double> x, int index) //file write function
   fileWrite.close();
 }
 
-void getCrossCorrelation(vector<double> &temp, vector<double> &r_xy, vector<double> x, int firstL, int lastL, int type)
+void getCrossCorrelation(vector<double> &temp, vector<double> &r_xy, vector<double> x, int firstL, int lastL)
 {
   for(int n = lastL; n >= firstL; n--)
   {
@@ -43,18 +43,7 @@ void getCrossCorrelation(vector<double> &temp, vector<double> &r_xy, vector<doub
       }
       sum+=x[z]*temp[z];
     }
-    if (type == 1)
-    {
-      r_xy.insert(r_xy.begin(),sum);
-    }
-    else if (type == 2)
-    {
-      r_xy.push_back(sum);
-    }
-    else
-    {
-      cout << "What the hell happened?";
-    }
+    r_xy.insert(r_xy.begin(),sum);
     temp.erase(temp.begin());
   }
 }
@@ -212,17 +201,5 @@ void Adjust(vector<double> &x, int adjustMax)
   for(int n = 1; n < adjustMax; n++) //inserting 0 for begin lag
   {
     x.insert(x.begin(), 0);
-  }
-}
-
-void determineType(int x, int y, int &type)
-{
-  if(x<y)
-  {
-    type = 1; //inserts element to start of array via insert begin
-  }
-  else if(x>y)
-  {
-    type = 2; //inserts element to end of array via pushback
   }
 }

@@ -1,4 +1,4 @@
-2.0 added .0 just to emphasize value is floating pt
+-1 2.0 added .0 just to emphasize value is floating pt
 4.0
 1.0 
 Signal file format allows annotation like this.
