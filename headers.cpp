@@ -11,12 +11,47 @@ using namespace std;
 
 void FileWrite(vector<double> x, int index) //file write function
 {
-  string FN ="", test, extension = ".txt";
+  string FN, test, extension = ".txt";
+  bool validName = true;
+  
+  vector<string> illegalCharacters;
+  illegalCharacters.push_back("<");
+  illegalCharacters.push_back(">");
+  illegalCharacters.push_back(":");
+  illegalCharacters.push_back("\"");
+  illegalCharacters.push_back("/");
+  illegalCharacters.push_back("\\");
+  illegalCharacters.push_back("|");
+  illegalCharacters.push_back("?");
+  illegalCharacters.push_back("*");
 
-  cout << "File Name of Output:";
-  getline(cin, FN);
+  size_t found;
+
+  while(validName){
+    cout << "File Name of Output:";
+    getline(cin, FN);
+    for (int i = 0; i < illegalCharacters.size(); i++){
+      if (FN.find(illegalCharacters.at(i)) != string::npos)
+      {
+        validName = false;
+      }
+      if (i == illegalCharacters.size() - 1 && validName == true)
+      {
+        cout << "Proceeding" << endl;
+        validName = false;
+        break;
+      }
+      if (i == illegalCharacters.size() - 1 && validName == false)
+      {
+        cout << "Your file name must not include <, >, :, \", /, \\, |, ?, or *. Please try again." << endl; 
+        validName = true;
+      }
+    }
+  }
+
   test = FN.substr(FN.size()-4, 4);
   if(test != ".txt")
+
   {
       FN = FN + extension;
   }
@@ -29,6 +64,7 @@ void FileWrite(vector<double> x, int index) //file write function
     }
   fileWrite.close();
 }
+
 
 void getCrossCorrelation(vector<double> &temp, vector<double> &r_xy, vector<double> x, int firstL, int lastL)
 {
