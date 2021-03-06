@@ -27,6 +27,7 @@ void FileWrite(vector<double> x, int index) //file write function
 
   size_t found;
 
+  //asks for input until user inputs a valid file name
   while(validName){
     cout << "File Name of Output:";
     getline(cin, FN);
@@ -37,7 +38,6 @@ void FileWrite(vector<double> x, int index) //file write function
       }
       if (i == illegalCharacters.size() - 1 && validName == true)
       {
-        cout << "Proceeding" << endl;
         validName = false;
         break;
       }
@@ -49,12 +49,20 @@ void FileWrite(vector<double> x, int index) //file write function
     }
   }
 
-  test = FN.substr(FN.size()-4, 4);
-  if(test != ".txt")
-
+  //checks if file name has the .txt extension
+  if (FN.size() > 4)
   {
-      FN = FN + extension;
+    test = FN.substr(FN.size()-4, 4);
+    if(test != ".txt")
+    {
+        FN = FN + extension;
+    }
   }
+  else
+  {
+    FN = FN + extension;
+  }
+
   ofstream fileWrite(FN.c_str(), ios::out);
 
   fileWrite << index << " ";
