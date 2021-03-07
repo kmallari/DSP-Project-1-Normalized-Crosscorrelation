@@ -178,7 +178,6 @@ vector<double> extractSignals(int &signalsIndex)
   if (!signalFile.is_open())
   {
       cout << "Invalid File Name, Please try again..." <<endl;
-      signalFile.close();
       signals = extractSignals(signalsIndex);
   }
   else if (signalFile.is_open())
