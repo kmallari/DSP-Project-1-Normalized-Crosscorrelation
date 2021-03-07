@@ -11,7 +11,7 @@ using namespace std;
 
 void FileWrite(vector<double> x, int index) //file write function
 {
-  string FN, test, extension = ".txt";
+  string FN;
   bool validName = true;
   
   vector<string> illegalCharacters;
@@ -47,20 +47,6 @@ void FileWrite(vector<double> x, int index) //file write function
         validName = true;
       }
     }
-  }
-
-  //checks if file name has the .txt extension
-  if (FN.size() > 4)
-  {
-    test = FN.substr(FN.size()-4, 4);
-    if(test != ".txt")
-    {
-        FN = FN + extension;
-    }
-  }
-  else
-  {
-    FN = FN + extension;
   }
 
   ofstream fileWrite(FN.c_str(), ios::out);
@@ -178,7 +164,7 @@ void subtractAverage(vector<double> &x, double mean)
 
 vector<double> extractSignals(int &signalsIndex)
 {
-  string signalText, tempString, fileName, extension = ".txt", test;
+  string signalText, tempString, fileName;
   stringstream ss, ss2;
   int lineNumber = 0;
   double tempDouble;
@@ -186,19 +172,6 @@ vector<double> extractSignals(int &signalsIndex)
 
   cout << "Enter file name for the signals: ";
   getline(cin, fileName);
-
-  if (fileName.size() > 4)
-  {
-    test = fileName.substr(fileName.size()-4, 4);
-    if(test != ".txt")
-    {
-        fileName = fileName + extension;
-    }
-  }
-  else
-  {
-    fileName = fileName + extension;
-  }
 
   fstream signalFile(fileName);
 
@@ -216,7 +189,14 @@ vector<double> extractSignals(int &signalsIndex)
       {
         ss << signalText;
         ss >> tempString;
-        if (!isInt(tempString, signalsIndex))
+        if(!isDouble(tempString, tempDouble) && !isInt(tempString, signalsIndex))
+        {
+          cout << "Invalid Signal File!" <<endl;
+          signalFile.close();
+          signals = extractSignals(signalsIndex);
+          break;
+        }
+        else if (!isInt(tempString, signalsIndex))
         {
           if (isDouble(tempString, tempDouble))
           {
