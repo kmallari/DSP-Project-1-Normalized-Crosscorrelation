@@ -178,7 +178,7 @@ void subtractAverage(vector<double> &x, double mean)
 
 vector<double> extractSignals(int &signalsIndex)
 {
-  string signalText, tempString, fileName;
+  string signalText, tempString, fileName, extension = ".txt", test;
   stringstream ss, ss2;
   int lineNumber = 0;
   double tempDouble;
@@ -186,6 +186,19 @@ vector<double> extractSignals(int &signalsIndex)
 
   cout << "Enter file name for the signals: ";
   getline(cin, fileName);
+
+  if (fileName.size() > 4)
+  {
+    test = fileName.substr(fileName.size()-4, 4);
+    if(test != ".txt")
+    {
+        fileName = fileName + extension;
+    }
+  }
+  else
+  {
+    fileName = fileName + extension;
+  }
 
   fstream signalFile(fileName);
 
