@@ -12,7 +12,8 @@ using namespace std;
 
 int main()
 {
-  int signalsIndex1, signalsIndex2, signal1LastIndex, signal2LastIndex;
+  int signalsIndex1, signalsIndex2;
+  int signal1LastIndex, signal2LastIndex;
   int lastL, firstL, type;
   vector<double> firstSignals, secondSignals, temp, r_xy;
 
@@ -34,7 +35,7 @@ int main()
   //}
 
   signal1LastIndex=signalsIndex1+firstSignals.size()-1;
-  signal2LastIndex=signalsIndex2+secondSignals.size()-1; //is this needed?
+  signal2LastIndex=signalsIndex2+secondSignals.size()-1;
   lastL=signal1LastIndex-signalsIndex2;
   firstL=signalsIndex1-signal2LastIndex;
 

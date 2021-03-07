@@ -43,7 +43,8 @@ void FileWrite(vector<double> x, int index) //file write function
       }
       if (i == illegalCharacters.size() - 1 && validName == false)
       {
-        cout << "Your file name must not include <, >, :, \", /, \\, |, ?, or *. Please try again." << endl; 
+        cout << "Your file name must not include <, >,";
+        cout << ":, \", /, \\, |, ?, or *. Please try again." <<endl; 
         validName = true;
       }
     }
@@ -60,21 +61,22 @@ void FileWrite(vector<double> x, int index) //file write function
 }
 
 
-void getCrossCorrelation(vector<double> &temp, vector<double> &r_xy, vector<double> x, int firstL, int lastL)
+void getCrossCorrelation(vector<double> &tempVector, 
+vector<double> &r_xy, vector<double> x, int firstL, int lastL)
 {
   for(int n = lastL; n >= firstL; n--)
   {
     double sum = 0;
     for(int z = 0; z < x.size(); z++)
     {
-      if(temp.size()<z+1)
+      if(tempVector.size()<z+1)
       {
         break;
       }
-      sum+=x[z]*temp[z];
+      sum+=x[z]*tempVector[z];
     }
     r_xy.insert(r_xy.begin(),sum);
-    temp.erase(temp.begin());
+    tempVector.erase(tempVector.begin());
   }
 }
 
@@ -188,7 +190,8 @@ vector<double> extractSignals(int &signalsIndex)
       {
         ss << signalText;
         ss >> tempString;
-        if(!isDouble(tempString, tempDouble) && !isInt(tempString, signalsIndex))
+        if(!isDouble(tempString, tempDouble) 
+        && !isInt(tempString, signalsIndex))
         {
           cout << "Invalid Signal File!" <<endl;
           signalFile.close();
