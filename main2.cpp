@@ -12,7 +12,7 @@ using namespace std;
 
 int main()
 {
-  int signalsIndex1, signalsIndex2;
+  int signalsIndex1 = 0, signalsIndex2 = 0;
   int signal1LastIndex, signal2LastIndex;
   int lastL, firstL, type;
   vector<double> firstSignals, secondSignals, temp, r_xy;
