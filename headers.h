@@ -5,7 +5,8 @@ using namespace std;
 
 void FileWrite(vector<double> x, int index);
 
-void getCrossCorrelation(vector<double> &temp, vector<double> &r_xy, vector<double> x, int firstL, int lastL);
+void getCrossCorrelation(vector<double> &temp, 
+vector<double> &r_xy, vector<double> x, int firstL, int lastL);
 
 double getMean(vector<double> x);
 
