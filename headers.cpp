@@ -27,7 +27,6 @@ void FileWrite(vector<double> x, int index) //file write function
 
   size_t found;
 
-  //asks for input until user inputs a valid file name
   while(validName){
     cout << "File Name of Output:";
     getline(cin, FN);
@@ -184,7 +183,7 @@ vector<double> extractSignals(int &signalsIndex)
   }
   else if (signalFile.is_open())
   {
-    while (getline(signalFile, signalText))
+    while (getline(signalFile, signalText) && signalText != "")
     {
       if (lineNumber == 0)
       {
@@ -202,6 +201,7 @@ vector<double> extractSignals(int &signalsIndex)
         {
           if (isDouble(tempString, tempDouble))
           {
+            ss >> tempString;
             if (isDouble(tempString,tempDouble2))
             {
               cout << "Invalid Index! " << tempDouble; 
@@ -211,8 +211,9 @@ vector<double> extractSignals(int &signalsIndex)
               break;
             }
             signals.push_back(tempDouble);
+            signalsIndex = 0;
           }
-          signalsIndex = 0;
+          
         }
         else
         {
@@ -246,7 +247,7 @@ vector<double> extractSignals(int &signalsIndex)
 
 void Adjust(vector<double> &x, int adjustMax)
 {
-  for(int n = 1; n < adjustMax; n++) //inserting 0 for begin lag
+  for(int n = 1; n < adjustMax; n++) 
   {
     x.insert(x.begin(), 0);
   }

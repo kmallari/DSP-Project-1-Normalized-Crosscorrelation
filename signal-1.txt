@@ -1,8 +1,0 @@
--1 2.0 added .0 just to emphasize value is floating pt
-4.0
-1.0 
-Signal file format allows annotation like this.
-same values as in p13 of 2021-02-18-normalized-crosscorrelation.pdf
-but start index changed to -1.
-This is a valid signal file.
-
