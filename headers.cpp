@@ -169,7 +169,7 @@ vector<double> extractSignals(int &signalsIndex)
   string signalText, tempString, fileName;
   stringstream ss, ss2;
   int lineNumber = 0;
-  double tempDouble;
+  double tempDouble, tempDouble2;
   vector<double> signals;
 
   cout << "Enter file name for the signals: ";
@@ -202,6 +202,14 @@ vector<double> extractSignals(int &signalsIndex)
         {
           if (isDouble(tempString, tempDouble))
           {
+            if (isDouble(tempString,tempDouble2))
+            {
+              cout << "Invalid Index! " << tempDouble; 
+              cout << " is not a valid index." <<endl;
+              signalFile.close();
+              signals = extractSignals(signalsIndex);
+              break;
+            }
             signals.push_back(tempDouble);
           }
           signalsIndex = 0;
