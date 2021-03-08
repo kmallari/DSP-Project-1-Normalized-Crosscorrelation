@@ -227,6 +227,7 @@ vector<double> extractSignals(int &signalsIndex)
       }
       else
       {
+        ss2.str(string());
         ss2 << signalText;
         ss2 >> tempString;
         ss2.clear();
